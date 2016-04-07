@@ -1,0 +1,39 @@
+import java.awt.EventQueue;
+import javafx.application.Application;
+import javafx.stage.Stage;
+import javax.swing.JFrame;
+
+public class Run extends JFrame {
+
+    public Run(){
+        initUI();
+    }
+    
+    private void initUI(){
+        add(new Board());
+        
+        setResizable(true);
+        setSize(1000,800);
+        //pack();
+        
+        setTitle("Bardejov");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+    }
+    
+    /*
+    public Run(){
+        initUI();
+    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable(){
+            public void run(){
+                Run ex = new Run();
+                ex.setVisible(true);
+            }
+        });
+    }
+}
