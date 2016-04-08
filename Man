@@ -1,0 +1,83 @@
+import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+
+
+public class Man extends Sprite {
+    private int dx, dy;
+    private ArrayList<Missle> missle;
+    
+    public Man(int x, int y){
+        super (x,y);
+        initMan();
+    }
+    
+    private void initMan(){
+        missle = new ArrayList<>();
+        loadImage("images/man.png");
+
+        getImageDimensions();
+
+    }
+    
+    public void move(){
+        x += dx;
+        y += dy;
+        
+        if (x < 0){
+            x = 1;
+        }
+ 
+       
+        if (y < 0){
+            y = 1;            
+        }
+    
+        
+    }
+    
+    public ArrayList getMissle(){
+        return missle;
+    }
+    
+    public void fire(){
+        missle.add(new Missle(x + width, y + height / 2));
+    }
+
+    public void keyPressed(KeyEvent e){
+        int key = e.getKeyCode();
+        
+        if (key == KeyEvent.VK_SPACE){
+            fire();
+        }
+        
+        if (key == KeyEvent.VK_LEFT){
+            dx = -1;
+        }
+        if (key == KeyEvent.VK_RIGHT){
+            dx = 1;
+        }
+        if (key == KeyEvent.VK_UP){
+            dy = -1;
+        }
+        if (key == KeyEvent.VK_DOWN){
+            dy = 1;
+        }
+    }
+    
+    public void keyReleased(KeyEvent e){
+        int key = e.getKeyCode();
+        
+        if (key == KeyEvent.VK_LEFT){
+            dx = 0;
+        }
+        if (key == KeyEvent.VK_RIGHT){
+            dx = 0;
+        }
+        if (key == KeyEvent.VK_UP){
+            dy = 0;
+        }
+        if (key == KeyEvent.VK_DOWN){
+            dy = 0;
+        }
+    }
+}
