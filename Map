@@ -1,0 +1,18 @@
+
+public class Map extends Sprite{
+    
+    int[][] mapArray = new int[10][10];
+    
+    public Map(int x, int y) {
+        super(x, y);
+        
+        initMap();
+    }
+    
+    private void initMap(){
+        loadImage("images/map.png");
+        getImageDimensions();
+
+    }
+
+}
